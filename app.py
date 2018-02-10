@@ -2,8 +2,7 @@ import dash
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
-import plotly.graph_objs as go
-import pandas as pd
+import plotly.graph_objs as goimport pandas as pd
 
 app = dash.Dash()
 app.config['suppress_callback_exceptions']=True
@@ -25,10 +24,7 @@ player_data['Place'] = range(1, 8)
 
 country_data = (pd.merge(teams, medal_count, on='Country', how='outer')
 				  .fillna(0))
-country_data.loc[country_data.Place == 0, 'Place'] = country_data.Place.max()+1 
-
-
-# TODO: Maybe make the big table dependent on a dropdown where you select the person???
+country_data.loc[country_data.Place == 0, 'Place'] = country_data.Place.max() + 1 
 
 #########################
 # Dashboard/Layout view #
@@ -77,6 +73,10 @@ app.layout = html.Div([
 app.css.append_css({
     'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'
 })
+
+#########################
+### Control elements ####
+#########################
 
 @app.callback(
     Output(component_id='output-table', component_property='children'),

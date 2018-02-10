@@ -5,7 +5,7 @@ import dash_html_components as html
 import pandas as pd
 
 app = dash.Dash()
-app.config['suppress_callback_exceptions']=True
+#app.config['suppress_callback_exceptions']=True
 server = app.server
 
 #########################

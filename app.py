@@ -44,10 +44,6 @@ def generate_table(dataframe):
         ]) for i in range(len(dataframe))],
     )
 
-
-
-app = dash.Dash()
-
 app.layout = html.Div([
 	html.Div([
     	html.H4(children='Minkus Family Standings'),
